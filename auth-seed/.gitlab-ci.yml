@@ -1,0 +1,10 @@
+image: node:latest
+
+cache:
+  paths:
+    - node_modules/
+
+test_letslearn:
+  script:
+    - npm install
+    - ./node_modules/mocha/bin/mocha ./app/modules/**/*/test/unit/*.unit.js --exit --timeout 1200

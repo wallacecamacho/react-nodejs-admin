@@ -1,0 +1,20 @@
+log/*
+node_modules/
+npm-debug.log
+yarn-error.log
+
+package-lock.json
+
+node_modules
+typings
+ts-node
+
+.sonar_lock
+report-task.txt
+.nyc_output
+.scannerwork
+.sonarlint
+coverage.lcov
+
+# OS X trash files
+.DS_Store

@@ -1,0 +1,22 @@
+version: '2'
+services:
+  library:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: node_modules/.bin/nodemon --exec npm start
+    environment:
+      NODE_ENV: default
+    ports:
+      - 3000:3000
+      - 3443:3443
+    volumes:
+     - .:/opt/app/library
+     - /opt/app/library/node_modules
+  redis:
+    image: redis
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./bin/conf/redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"

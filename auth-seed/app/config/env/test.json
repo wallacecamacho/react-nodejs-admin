@@ -1,0 +1,111 @@
+{
+    "app": {
+        "name": "seed-backend",
+        "baseRoute": "/api",
+        "port": 3001,
+        "secport": 3443,
+        "host": "localhost"
+    },
+    "security": {
+        "tokenLife": 3600
+    },
+    "captcha": {
+        "secretKey": "6LcYy3kUAAAAADHFbhmA3V6zKP_LjVncbl2Vr-bw"
+    },
+    "sms": {
+        "twilio": {
+            "twilioAccountSid": "AC79fa0633b09766832e5902019e6305d0",
+            "twilioAuthToken": "75441f54f08dc49b3ef5c665217c436d",
+            "twilioNumber": "+19313470017",
+            "authyApiKey": "4wryEJU8thEAMW95tfQpUzWgB7B33L2e"
+        },
+        "config": {
+            "permitSend": true,
+            "qtyNumbersKey": 6
+        }
+    },
+    "mailer": {
+        "serverConfig": {
+            "host": "",
+            "port": true,
+            "secure": "",
+            "auth": {
+                "user": "",
+                "pass": ""
+            },
+            "logger": false,
+            "debug": false
+        },
+        "fromConfig": {
+            "from": "",
+            "headers": ""
+        },
+        "permitSend": true
+    },
+    "db": {
+        "url": "mongodb+srv://user_app:app_user@cluster0-nws52.mongodb.net/fulltext",
+        "options": {
+            "poolSize": 10,
+            "keepAlive": 300000,
+            "connectTimeoutMS": 30000
+        }
+    },
+    "aws": {
+        "AWS_KEY": "AKIAIZ2QTUMTCTVNXPVQ",
+        "AWS_SECRET": "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",
+        "bucket": {
+            "imageProfile": "images.seed.com.br/img/profile"
+        },
+        "s3": "https://s3.amazonaws.com"
+    },
+    "redis": {
+        "host": "localhost",
+        "port": 6379
+    },
+    "log": {
+        "debug": true,
+        "winston": {
+            "name": "Application",
+            "streams": [
+                {
+                    "level": "debug",
+                    "type": "rotating-file",
+                    "path": "log/{hostname}.log",
+                    "period": "1d",
+                    "count": 2
+                }
+            ]
+        }
+    },
+    "authorization": {
+        "enabled": "true",
+        "scheme": "Baerer",
+        "jwt": {
+            "secret": "49b4e2f9-ec31-4758-bae5-741a80e0e8de",
+            "expiresIn": "1h"
+        }
+    },
+    "audit": {
+        "enabled": true,
+        "printLog": true,
+        "winston": {
+            "name": "Audit",
+            "streams": [
+                {
+                    "level": "debug",
+                    "type": "rotating-file",
+                    "path": "log/audit.log",
+                    "period": "1d",
+                    "count": 3
+                }
+            ]
+        }
+    },
+    "origin": {
+        "require": {
+            "application": false,
+            "channel": false,
+            "device": false
+        }
+    }
+}

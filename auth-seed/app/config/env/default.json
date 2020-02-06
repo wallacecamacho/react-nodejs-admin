@@ -1,0 +1,124 @@
+{
+    "app": {
+        "name": "seed-backend",
+        "baseRoute": "/api",
+        "port": 3001,
+        "secport": 3443,
+        "host": "localhost"
+    },
+    "security": {
+        "tokenLife" : 3600
+    },
+    "captcha": {
+        "secretKey": ""
+    },
+    "sms": { 
+        "twilio": {
+            "twilioAccountSid": "",
+            "twilioAuthToken": "",
+            "twilioNumber": "",
+            "authyApiKey": ""
+        },
+        "config": {
+            "permitSend": true,
+            "qtyNumbersKey": 6
+        }
+    },
+    "mailer": {
+        "oath2": {
+            "type": "service_account",
+            "project_id": "",
+            "private_key_id": "",
+            "private_key": "",
+            "client_email": "",
+            "client_id": "",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://accounts.google.com/o/oauth2/token",
+            "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+            "client_x509_cert_url": ""
+          },  
+        "serverConfig": {
+            "service": "gmail",
+            "host": "smtp.gmail.com",
+            "port": 465,
+            "secure" : true,
+            "auth": {
+                    "user": "",
+                    "pass": ""
+                },
+            "logger": false,
+            "debug": false
+        },
+        "fromConfig": {
+            "from": "" ,
+            "headers": ""     
+        },
+        "permitSend": true
+    },
+    "db": {
+        "url": "",
+        "options": {
+            "poolSize": 10,
+            "keepAlive": 300000,
+            "connectTimeoutMS": 30000
+        }
+    },
+    "aws": {
+        "AWS_KEY": "",
+        "AWS_SECRET": "",
+        "bucket": {
+            "imageProfile": "nome do bucket"
+        },
+        "s3": "https://s3.amazonaws.com"
+    },
+    "redis": {
+        "host": "localhost",
+        "port": 6379
+    },
+    "log": {
+        "debug": true,
+        "winston": {
+            "name": "Application",
+            "streams": [
+                {
+                    "level": "debug",
+                    "type": "rotating-file",
+                    "path": "log/{hostname}.log",
+                    "period": "1d",
+                    "count": 2
+                }
+            ]
+        }
+    },
+    "authorization": {
+        "enabled": "true",
+        "scheme": "Baerer",
+        "jwt": {
+            "secret": "49b4e2f9-ec31-4758-bae5-741a80e0e8de",
+            "expiresIn": "1h"
+        }
+    },
+    "audit": {
+        "enabled": true,
+        "printLog": true,
+        "winston": {
+            "name": "Audit",
+            "streams": [
+                {
+                    "level": "debug",
+                    "type": "rotating-file",
+                    "path": "log/audit.log",
+                    "period": "1d",
+                    "count": 3
+                }
+            ]
+        }
+    },
+    "origin": {
+        "require": {
+            "application": false,
+            "channel": false,
+            "device": false
+        }
+    }
+}

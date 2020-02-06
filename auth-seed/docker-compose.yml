@@ -1,0 +1,41 @@
+version: '3'
+services:
+
+  nginx: 
+    build:
+      context: ./bin/production/nginx
+      dockerfile: Dockerfile
+    restart: "no" 
+    container_name: production_nginx
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - app
+    depends_on: 
+      - app
+    networks:
+      - lognet
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: "no" 
+    command: node_modules/.bin/nodemon --exec npm start
+    environment:
+      NODE_ENV: default
+    ports:
+      - 3001:3001
+      - 3443:3443
+    volumes:
+     - .:/opt/app/library
+     - /opt/app/library/node_modules
+    networks:
+      - lognet
+     
+
+networks:
+  lognet:
+    driver: bridge
+

@@ -1,0 +1,31 @@
+{
+    "IS_REQUIRED": "is required",
+    "MIN": "Deve ter no mínimo ",
+    "CARACTERES": "Caracteres",
+    "INFORM": "Informe ",
+    "SUCCESS": "Successo",
+    "ERROR": "Erro",
+    "INFO": "Informação",
+    "WARN": "Aviso",
+    "INVALID": "Inválido",
+
+	"SIGN_UP_PHRASE": "A sorte favorece os destemidos.",
+	"SIGN_UP_PHRASE_AUTHOR": "Alexandre, o grande.",
+	"SIGN_UP_CREATE_NEW_ACCOUNT": "Criar nova conta",
+	"SIGN_UP_CREATE_NEW_USE_EMAIL": "Use seu e-mail para criar uma nova conta",
+	"SIGN_UP_CREATE_I_HAVE_READ": "Eu, já li os",
+    "SIGN_UP_CREATE_TERMS_CONDITION": "Termos e condições",
+    "SIGN_UP_NOW": "Cadastrar",
+    "SIGN_UP_HAVE_ACCOUNT": "Já possui uma conta ?",
+    "SIGN_UP": "Cadastre-se",
+    "SIGN_IN": "Entrar",
+    
+    "USER_FIRST_NAME": "Primeiro nome",
+    "USER_SECOND_NAME": "Sobrenome",
+    "USER_EMAIL_ADDRESS": "E-mail",
+    "USER_PASSWORD": "Password",
+    "USER_CELLPHONE": "Número Celular",
+    "USER_CELLPHONE_COUNTRY": "Celular país",
+    "USER_CELLPHONE_NOT_VALID": "não é um número válido"
+
+}

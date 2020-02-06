@@ -1,0 +1,31 @@
+{
+       "IS_REQUIRED": "is required",
+       "MIN": "Must have at least ",
+       "CARACTERES": "Characters",
+       "INFORM": "Fill in ",
+       "SUCCESS": "Success",
+       "ERROR": "Error",
+       "INFO": "Info",
+       "WARN": "Warn",
+       "INVALID": "Invalid",
+
+	"SIGN_UP_PHRASE": "Luck favors the fearless.",
+	"SIGN_UP_PHRASE_AUTHOR": "Alexander, the Great.",
+	"SIGN_UP_CREATE_NEW_ACCOUNT": "Create new account",
+	"SIGN_UP_CREATE_NEW_USE_EMAIL": "Use your email to create new account",
+	"SIGN_UP_CREATE_I_HAVE_READ": "I have read the",
+       "SIGN_UP_CREATE_TERMS_CONDITION": "Terms and conditions",
+       "SIGN_UP_NOW": "Sign up now",
+       "SIGN_UP_HAVE_ACCOUNT": "Have an account ?",
+       "SIGN_UP": "Sign up",
+       "SIGN_IN": "Sign in",
+       
+       "USER_FIRST_NAME": "First name",
+       "USER_SECOND_NAME": "Second name",
+       "USER_EMAIL_ADDRESS": "E-mail",
+       "USER_PASSWORD": "Password",
+       "USER_CELLPHONE": "Number cellphone",
+       "USER_CELLPHONE_COUNTRY": "Country cellphone",
+       "USER_CELLPHONE_NOT_VALID": "not number valid"
+
+}

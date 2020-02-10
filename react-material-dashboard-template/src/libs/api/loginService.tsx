@@ -2,7 +2,7 @@ import sendRequest from './sendRequest';
 import constants from '../config/constants'
 import { IRegister } from '../model/register';
 
-export default async function login() {
+export async function login() {
   const loginUrl = new URL(constants.API_URI.concat(constants.URN_LOGIN));
 
   return sendRequest(loginUrl.href, { method: 'POST' });

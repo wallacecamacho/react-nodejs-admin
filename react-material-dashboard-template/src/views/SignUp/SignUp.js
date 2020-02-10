@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link as RouterLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { validate, validators }  from 'validate.js';
+import { validate }  from 'validate.js';
 import { makeStyles } from '@material-ui/styles';
 import {
   Grid,
@@ -15,24 +15,11 @@ import {
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import {
-  withTranslation,
-  useTranslation
+  withTranslation
 } from 'react-i18next';
-import {
-    formatIncompletePhoneNumber,
-    parsePhoneNumberFromString,
-    parseNumber,
-    formatNumber,
-    isValidNumber,
-    getNumberType,
-    isPossibleNumber,
-    AsYouType
-  } from 'libphonenumber-js/custom';
-import metadata from 'libphonenumber-js/metadata.full.json';
 import validationDictionary from './validationDictionary';
-
 import CellPhoneInput from '../../components/CellPhoneInput';
-
+import { register } from '../../libs/api/loginService';
 
 
 const useStyles = makeStyles(theme => ({
@@ -131,51 +118,17 @@ const useStyles = makeStyles(theme => ({
 const SignUp = props => {
   const { history, t } = props;
 
-
+  const required = t('IS_REQUIRED');
+  const firstname = t('USER_FIRST_NAME');
   const classes = useStyles();
-  let maxLengthCellPhone = null;
-  let maxLengthCellPhoneSize = null;
   
-  validators.cust = (value, options, key, attributes) => {
-
-    const asYouType = new AsYouType(formState.values['countryCell'], metadata);
-    asYouType.input(value);
-    if(value) {
-
-      maxLengthCellPhone = asYouType.getTemplate();
-      maxLengthCellPhoneSize = maxLengthCellPhone.size;
-      
-      const numb = asYouType.getNumber();
-      const phoneNumber = parsePhoneNumberFromString(numb.number, metadata);
-
-      if(isValidNumber(numb.number, metadata) 
-        && isPossibleNumber(numb.number, metadata) 
-          && getNumberType(numb.number, metadata) === 'MOBILE' ) {
-
-        return '';
-      } else if(phoneNumber.isValid()
-          && phoneNumber.getType() 
-            && isPossibleNumber(numb.number, metadata) !== 'MOBILE') {
-        return t('USER_CELLPHONE_NOT_VALID');
-      }
-
-
-    }
-
-    console.log(value);
-    console.log(options);
-    console.log(key);
-    console.log(attributes);
-    return t('INVALID');
-  };
-
 
   const [formState, setFormState] = useState({
     isValid: false,
     values: {},
     touched: {},
     errors: {},
-    trad: validationDictionary(t)
+    trad: validationDictionary(required)
   });
 
   useEffect(() => {
@@ -190,12 +143,14 @@ const SignUp = props => {
 
   const handleChange = event => {
     event.persist();
-  //  if(event.target.name === 'cellPhone') {
-   //   event.target.value = formatIncompletePhoneNumber(event.target.value, formState.values['countryCell'], metadata);
+    //  if(event.target.name === 'cellPhone') {
+    //   event.target.value = formatIncompletePhoneNumber(event.target.value, formState.values['countryCell'], metadata);
     //}
 
     setFormState(formState => ({
       ...formState,
+      //trad: validationDictionary(required),
+      errors:{ ...formState.errors},
       values: {
         ...formState.values,
         [event.target.name]:
@@ -217,6 +172,7 @@ const SignUp = props => {
 
   const handleSignUp = event => {
     event.preventDefault();
+    register(formState.values);
     history.push('/');
   };
 
@@ -291,11 +247,11 @@ const SignUp = props => {
                 <TextField
                   className={classes.textField}
                   error={hasError('firstName')}
-                  fullWidth
+                  fullWidth 
                   helperText={
                     hasError('firstName') ? t(formState.errors.firstName[0]) : null
                   }
-                  label={t('USER_FIRST_NAME')}
+                  label={firstname}
                   name="firstName"
                   onChange={handleChange}
                   type="text"

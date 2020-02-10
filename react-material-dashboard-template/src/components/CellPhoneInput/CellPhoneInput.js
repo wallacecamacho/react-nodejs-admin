@@ -11,8 +11,6 @@ import { getCountries, getCountryCallingCode } from 'libphonenumber-js'
 import {
   formatIncompletePhoneNumber,
   parsePhoneNumberFromString,
-  parseNumber,
-  formatNumber,
   isValidNumber,
   getNumberType,
   isPossibleNumber,
@@ -66,7 +64,7 @@ const renderOptions = () => {
 
 
 const CellPhoneInput = props => {
-  const { handleChange,
+  const {
     nameFormCountry,
     nameFormCell,
     value,
@@ -99,7 +97,7 @@ const CellPhoneInput = props => {
   
   useEffect(() => {
     const errors = validate(formState2.values, formState2.trad);
-    const helper = getExampleNumber(formState2.values[nameFormCountry], examples, metadata);
+    //const helper = getExampleNumber(formState2.values[nameFormCountry], examples, metadata);
 
     setFormState(formState2 => ({
       ...formState2,

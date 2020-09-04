@@ -42,7 +42,7 @@
     "material-table": "^1.30.0",
     "material-ui-phone-number": "^2.2.5",
     "moment": "^2.24.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "notistack": "^0.9.7",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
